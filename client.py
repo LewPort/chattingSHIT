@@ -8,7 +8,6 @@ import urllib.request
 PUT THE SERVER IP HERE!!!!!
 '''
 SERVERIP = '81.100.27.47'
-
     
 class Client:
 
@@ -27,8 +26,8 @@ class Client:
                                    wrap='word')
         self.displaychat.bind("<1>", lambda event: self.displaychat.focus_set())
         self.chatscroll = tk.Scrollbar(self.chatframe, command=self.displaychat.yview)
-        self.chatscroll.pack(side='right')
-        self.displaychat.pack(side='left', fill='both')
+        self.chatscroll.pack(side='right', expand=True, fill='y')
+        self.displaychat.pack(side='left', expand=True, fill='both')
         
         self.displaychat.config(yscrollcommand=self.chatscroll.set, state='disabled')
         self.msgentry = tk.Entry(self.window, width=60)
@@ -36,8 +35,8 @@ class Client:
         self.msgentry.bind('<Return>', self.sendmsg)
 
         self.topframe.pack()
-        self.chatframe.pack()
-        self.msgentry.pack()
+        self.chatframe.pack(fill='both', expand=True)
+        self.msgentry.pack(fill='y')
         self.send.pack()
 
         t = Thread(target=self.displayincoming)
