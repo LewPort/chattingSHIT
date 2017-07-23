@@ -3,12 +3,18 @@ import tkinter as tk
 import time
 from threading import Thread
 import urllib.request
+
+'''
+PUT THE SERVER IP HERE!!!!!
+'''
+SERVERIP = '81.100.27.47'
+
     
 class Client:
 
     def __init__(self):
         self.window = tk.Tk()
-        self.window.title('ChattingSHIT')
+        self.window.title('ChattingSHITE')
         self.topframe = tk.Frame(self.window)
         self.chatframe = tk.Frame(self.window, padx=2, pady=2)
         self.namelabel= tk.Label(self.topframe, text='Name: ')
@@ -72,12 +78,14 @@ class Client:
 
 localip = socket.gethostbyname(socket.gethostname())
 # wanip = urllib.request.urlopen("http://myip.dnsdynamic.org/").read()
-host = '192.168.0.8'
+host = SERVERIP
 port = 5000
 s = socket.socket()
 
 try:
+    print('attempting connection')
     s.connect((host, port))
+    print('connected')
 except ConnectionRefusedError:
     print('Couldnae connect')
 
