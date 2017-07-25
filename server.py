@@ -42,7 +42,7 @@ def recv():
             pass
 
 localip = socket.gethostbyname(socket.gethostname())
-host = '192.168.0.8'
+host = '0.0.0.0'
 port = 5000
 
 print('Server started on %s:%d' % (host, port))
